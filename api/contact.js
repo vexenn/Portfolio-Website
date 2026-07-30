@@ -1,19 +1,21 @@
 module.exports = async function handler(req, res) {
+    res.setHeader('Content-Type', 'application/json');
+
     if (req.method !== 'POST') {
         return res.status(405).json({ success: false, message: 'Method Not Allowed' });
     }
 
     try {
-        // Ensure body is parsed correctly even if sent as a raw string stream
         let body = req.body;
         if (!body) {
-            return res.status(400).json({ success: false, message: 'Request body is empty' });
+            return res.status(400).json({ success: false, message: 'Request body is empty.' });
         }
+
         if (typeof body === 'string') {
             try {
                 body = JSON.parse(body);
             } catch (e) {
-                return res.status(400).json({ success: false, message: 'Invalid JSON body payload' });
+                return res.status(400).json({ success: false, message: 'Invalid JSON format in body.' });
             }
         }
 
@@ -21,14 +23,14 @@ module.exports = async function handler(req, res) {
         const accessKey = process.env.WEB3FORMS_ACCESS_KEY;
 
         if (!accessKey) {
-            return res.status(500).json({ success: false, message: 'Server configuration error: Missing API key.' });
+            return res.status(500).json({ success: false, message: 'Configuration error: WEB3FORMS_ACCESS_KEY is missing.' });
         }
 
         if (!name || !email || !message) {
-            return res.status(400).json({ success: false, message: 'Missing required fields: name, email, or message.' });
+            return res.status(400).json({ success: false, message: 'Please fill out all required fields.' });
         }
 
-        const externalResponse = await fetch('https://api.web3forms.com/submit', {
+        const web3Response = await fetch('https://api.web3forms.com/submit', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',
@@ -36,28 +38,29 @@ module.exports = async function handler(req, res) {
             },
             body: JSON.stringify({
                 access_key: accessKey,
-                name,
-                email,
-                message
+                name: name,
+                email: email,
+                message: message
             })
         });
 
-        const rawText = await externalResponse.text();
-        let data;
+        const responseText = await web3Response.text();
+        let resultData;
+        
         try {
-            data = JSON.parse(rawText);
-        } catch (parseError) {
-            return res.status(502).json({ success: false, message: 'Web3Forms returned non-JSON response: ' + rawText });
+            resultData = JSON.parse(responseText);
+        } catch (err) {
+            return res.status(502).json({ success: false, message: 'Invalid response received from email service.' });
         }
 
-        if (externalResponse.ok) {
-            return res.status(200).json({ success: true, message: 'Message sent successfully' });
+        if (web3Response.ok) {
+            return res.status(200).json({ success: true, message: 'Message sent successfully!' });
         } else {
-            return res.status(externalResponse.status).json({ success: false, message: data.message || 'Error from email provider' });
+            return res.status(web3Response.status).json({ success: false, message: resultData.message || 'Submission failed.' });
         }
 
-    } catch (error) {
-        console.error('Critical serverless execution error:', error);
-        return res.status(500).json({ success: false, message: 'Internal Server Error: ' + error.message });
+    } catch (err) {
+        console.error('Fatal API route error:', err);
+        return res.status(500).json({ success: false, message: 'Server error: ' + err.message });
     }
 };
