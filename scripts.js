@@ -131,25 +131,29 @@ contactForm.addEventListener('submit', async (e) => {
     submitButton.textContent = 'Sending...';
     submitButton.disabled = true;
     
-    // Send data to our secure Vercel Serverless Function
+    // Send data directly to Web3Forms to bypass Vercel serverless routing issues
     try {
-        const response = await fetch('/api/contact', {
+        const response = await fetch('https://api.web3forms.com/submit', {
             method: 'POST',
             headers: {
-                'Content-Type': 'application/json'
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
             },
             body: JSON.stringify({
+                access_key: '64b54cdd-7cfa-4b20-bd1b-b98f299a8ecb', // Replace with your actual Web3Forms access key
                 name: name,
                 email: email,
                 message: message
             })
         });
 
-        if (response.ok) {
+        const result = await response.json();
+
+        if (result.success) {
             showNotification('Message sent successfully! I\'ll get back to you soon.', 'success');
             contactForm.reset();
         } else {
-            showNotification('Something went wrong. Please try again.', 'error');
+            showNotification(result.message || 'Something went wrong. Please try again.', 'error');
         }
     } catch (error) {
         console.error(error);
