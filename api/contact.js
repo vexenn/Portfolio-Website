@@ -5,6 +5,13 @@ export default async function handler(req, res) {
     }
 
     const { name, email, message } = req.body;
+    const accessKey = process.env.WEB3FORMS_ACCESS_KEY;
+
+    // 1. Failsafe: Check if the Vercel Environment Variable is actually loaded
+    if (!accessKey) {
+        console.error('CRITICAL ERROR: WEB3FORMS_ACCESS_KEY is missing from Vercel Environment Variables.');
+        return res.status(500).json({ success: false, message: 'Server configuration error.' });
+    }
 
     // Basic backend validation
     if (!name || !email || !message) {
@@ -20,14 +27,23 @@ export default async function handler(req, res) {
                 'Accept': 'application/json'
             },
             body: JSON.stringify({
-                access_key: process.env.WEB3FORMS_ACCESS_KEY,
+                access_key: accessKey,
                 name: name,
                 email: email,
                 message: message
             })
         });
 
-        const data = await response.json();
+        // 2. Failsafe: Read the raw response as text FIRST to prevent the JSON.parse crash
+        const rawText = await response.text();
+
+        let data;
+        try {
+            data = JSON.parse(rawText);
+        } catch (parseError) {
+            console.error('Web3Forms returned an unexpected non-JSON response:', rawText);
+            return res.status(502).json({ success: false, message: 'Invalid response from email provider.' });
+        }
 
         if (response.ok) {
             return res.status(200).json({ success: true, message: 'Message sent successfully' });
