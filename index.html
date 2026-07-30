@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="description" content="Justin Davis - Web Developer & Software Engineer Portfolio">
+    <meta name="theme-color" content="#667eea">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Justin Davis">
+    <title>Justin Davis - Web Developer & Software Engineer</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-brand">JD</div>
+            <ul class="nav-menu">
+                <li><a href="#home" class="nav-link">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+            </ul>
+            <div class="theme-toggle" id="themeToggle">
+                <span class="sun-icon">☀️</span>
+                <span class="moon-icon">🌙</span>
+            </div>
+            <div class="hamburger">
+                <span></span>
+                <span></span>
+                <span></span>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Hi, I'm <span class="highlight">Justin Davis</span></h1>
+                <p class="hero-subtitle">Web Developer & Software Engineer</p>
+                <p class="hero-description">I build responsive, user-centric web applications and scalable software solutions using modern technologies.</p>
+                <div class="hero-buttons">
+                    <a href="#projects" class="btn btn-primary">View My Work</a>
+                    <a href="#contact" class="btn btn-secondary">Get In Touch</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="about">
+        <div class="container">
+            <h2 class="section-title">About Me</h2>
+            <div class="about-content">
+                <div class="about-text">
+                    <p>I'm a passionate web developer and software engineer with expertise in building modern web applications. With a strong foundation in both frontend and backend development, I create solutions that are not only functional but also engaging and intuitive.</p>
+                    <p>I'm dedicated to writing clean, maintainable code and staying updated with the latest trends in web development and software engineering.</p>
+                    <div class="about-stats">
+                        <div class="stat">
+                            <h3>2018</h3>
+                            <p>Frontend Dev Graduate</p>
+                        </div>
+                        <div class="stat">
+                            <h3>2026</h3>
+                            <p>Software Engineering Graduate</p>
+                        </div>
+                        <div class="stat">
+                            <h3>15+</h3>
+                            <p>Full-Stack & Software Projects</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills" class="skills">
+        <div class="container">
+            <h2 class="section-title">Skills & Technologies</h2>
+            <div class="skills-grid">
+                <div class="skill-category">
+                    <h3>Frontend</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">HTML5</span>
+                        <span class="skill-tag">CSS3</span>
+                        <span class="skill-tag">JavaScript</span>
+                        <span class="skill-tag">React</span>
+                        <span class="skill-tag">TypeScript</span>
+                        <span class="skill-tag">Responsive Design</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Backend</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Node.js</span>
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">Express.js</span>
+                        <span class="skill-tag">RESTful APIs</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">MongoDB</span>
+                    </div>
+                </div>
+                <div class="skill-category">
+                    <h3>Tools & Platforms</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Git</span>
+                        <span class="skill-tag">Docker</span>
+                        <span class="skill-tag">AWS</span>
+                        <span class="skill-tag">VS Code</span>
+                        <span class="skill-tag">npm/yarn</span>
+                        <span class="skill-tag">Webpack</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="projects">
+        <div class="container">
+            <h2 class="section-title">Recent Projects</h2>
+            <div class="projects-grid">
+                <!-- Project 1: Live AAC App -->
+                <div class="project-card">
+                    <div class="project-image" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);"></div>
+                    <div class="project-info">
+                        <h3>AAC Application</h3>
+                        <p>A live web application dedicated to Augmentative and Alternative Communication (AAC), providing accessible and intuitive communication solutions.</p>
+                        <div class="project-tags">
+                            <span>Web App</span>
+                            <span>Accessibility</span>
+                            <span>JavaScript</span>
+                        </div>
+                        <a href="https://my-aac-app.com" target="_blank" rel="noopener noreferrer" class="project-link">View Live Website →</a>
+                    </div>
+                </div>
+
+                <!-- Project 2: a11y-alt-generator -->
+                <div class="project-card">
+                    <div class="project-image" style="background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);"></div>
+                    <div class="project-info">
+                        <h3>a11y-alt-generator</h3>
+                        <p>An AI accessibility tool utilizing a Flask backend and the Gemini API to automatically generate alternative text description tags for uploaded images.</p>
+                        <div class="project-tags">
+                            <span>Flask</span>
+                            <span>Gemini API</span>
+                            <span>Python</span>
+                        </div>
+                        <a href="https://github.com/vexenn/python/tree/master/a11y-alt-generator" target="_blank" rel="noopener noreferrer" class="project-link">View Repository →</a>
+                    </div>
+                </div>
+
+                <!-- Project 3: Capybara Pet -->
+                <div class="project-card">
+                    <div class="project-image" style="background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%);"></div>
+                    <div class="project-info">
+                        <h3>Capybara Pet Desktop App</h3>
+                        <p>An interactive, animated desktop pet application featuring custom 3D models, transparency layering, and dynamic window geometry rules.</p>
+                        <div class="project-tags">
+                            <span>Python</span>
+                            <span>Tkinter</span>
+                            <span>Blender 3D</span>
+                        </div>
+                        <a href="https://github.com/vexenn/python/tree/master/capy_pet" target="_blank" rel="noopener noreferrer" class="project-link">View Repository →</a>
+                    </div>
+                </div>
+
+                <!-- Project 4: ultimate-debugger -->
+                <div class="project-card">
+                    <div class="project-image" style="background: linear-gradient(135deg, #fac0fe 0%, #00f2fe 100%);"></div>
+                    <div class="project-info">
+                        <h3>Ultimate Local Debugger</h3>
+                        <p>A multi-engine debugging command center utilizing AST manipulation, regular expressions, and isolated runtime sandboxing for automated self-healing code analysis.</p>
+                        <div class="project-tags">
+                            <span>Python</span>
+                            <span>AST Manipulation</span>
+                            <span>Sandboxing</span>
+                        </div>
+                        <a href="https://github.com/vexenn/ultimate-debugger" target="_blank" rel="noopener noreferrer" class="project-link">View Repository →</a>
+                    </div>
+                </div>
+
+                <!-- Project 5: Calculator Project -->
+                <div class="project-card">
+                    <div class="project-image" style="background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);"></div>
+                    <div class="project-info">
+                        <h3>Automated CI/CD Pipeline (Calculator)</h3>
+                        <p>A robust automated testing and deployment workflow engineered for a calculator application, utilizing custom scripts to ensure code reliability prior to production.</p>
+                        <div class="project-tags">
+                            <span>GitHub Actions</span>
+                            <span>Jest</span>
+                            <span>ESLint</span>
+                        </div>
+                        <a href="https://github.com/vexenn/calculator-ci-demo" target="_blank" rel="noopener noreferrer" class="project-link">View Repository →</a>
+                    </div>
+                </div>
+
+                <!-- Project 6: Login-security-lab -->
+                <div class="project-card">
+                    <div class="project-image" style="background: linear-gradient(135deg, #ff9a56 0%, #ff6a88 100%);"></div>
+                    <div class="project-info">
+                        <h3>Smart Task Manager — Full-Stack Security Lab</h3>
+                        <p>A secure full-stack authentication portal built with Node.js, Express, and Oracle DB. Implements bcrypt password hashing, JWT session management, automated rate-limiting, and bind-parameterized SQL injection defenses. Includes a live security exploit simulation suite and automated GitHub Actions CI.</p>
+                        <div class="project-tags">
+                            <span>HTML5, CSS3, JavaScript</span>
+                            <span>bcrypt / JWT</span>
+                            <span>GitHub Actions</span>
+                        </div>
+                        <a href="https://github.com/vexenn/login-security-lab" target="_blank" rel="noopener noreferrer" class="project-link">View Repository →</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <h2 class="section-title">Get In Touch</h2>
+            <p class="contact-subtitle">Feel free to reach out for collaboration or just a friendly hello</p>
+            <div class="contact-content">
+                <form class="contact-form" id="contactForm">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                    <input type="email" name="email" placeholder="Your Email" required>
+                    <textarea name="message" placeholder="Your Message" rows="5" required></textarea>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                </form>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <h3>Email</h3>
+                        <a href="mailto:justin@example.com">vexenn897@gmail.com</a>
+                    </div>
+                    <div class="contact-item">
+                        <h3>Phone</h3>
+                        <a href="tel:+1234567890">+1 (925) 383-1255</a>
+                    </div>
+                    <div class="contact-item">
+                        <h3>Location</h3>
+                        <p>Newark, CA</p>
+                    </div>
+                    <div class="social-links">
+                        <a href="https://github.com/vexenn" class="social-link">GitHub</a>
+                        <a href="https://www.linkedin.com/in/justin-davis-928a10155" class="social-link">LinkedIn</a>
+                        <a href="#" class="social-link">Scroll up</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Justin Davis. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="scripts.js"></script>
+</body>
+</html>
